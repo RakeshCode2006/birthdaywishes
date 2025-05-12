@@ -1,0 +1,197 @@
+body{
+    color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    background-color: rgb(161, 105, 214);
+    /* cursor: not-allowed; */
+}
+
+.envelope{
+    position: relative;
+    cursor: pointer;
+}
+.back{
+    position: relative;
+    height: 200px;
+    width: 250px;
+    background-color: rgb(109, 16, 196);
+}
+.font{
+    position: absolute;
+    border-right: 125px solid rgb(133, 32, 205);
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    top: 0;
+    left: 125px;
+    z-index: 3;
+}
+.font:before{
+    content: "";
+    position: absolute;
+    border-left: 125px solid  rgb(133, 32, 205) ;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    height: 0;
+    width: 0;
+    top:-100px;
+    left: -125px;
+}
+.font:after{
+    content: "";
+    position: absolute;
+    border-left: 125px solid  transparent ;
+    border-right: 125px solid transparent;
+    border-bottom: 100px solid  rgb(125, 32, 209);
+    height: 0;
+    width: 0;
+    left: -125px;  
+}
+.top{
+    position: absolute;
+    border-top: 100px solid rgb(118, 46, 181) ;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    top: 0px;
+    transform-origin: top;
+    transition-duration: 0.4s;
+    /* animation-name: open;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    transform: rotatex(160deg); */
+
+}
+.envelope:hover .top{
+    transform: rotatex(160deg);
+}
+@keyframes open {
+    0%{transform:rotatex(0deg);}  
+    100%{transform:rotatex(160deg);} 
+ }
+.latter{
+    position: absolute;
+    background-color: white;
+    width: 220px;
+    height: 200px;
+    top: 0px;
+    left: 15px;
+    transition: 2s;
+}
+.envelope:hover .latter{
+    transform: translatey(-120px);
+    z-index: 2;
+}
+.text1{
+    position: absolute;
+    color: black ;
+    top: -225px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.text{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 300;
+
+}
+
+.heart{
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    transform: rotate(45deg);
+    position: relative;
+    top: 20px;
+    left: 15px;
+    box-shadow: -5px 10px 60px red;
+
+}
+.heart::before{
+    content: "";
+    position: absolute;
+    height:50px ;
+    width: 50px;
+    left: -28px;
+    top: 0px;
+    border-radius: 50%;
+    background-color: red;
+}
+.heart::after{
+    content: "";
+    position: absolute;
+    height:50px ;
+    width: 50px;
+    top: -28px;
+    left: 0 px;
+    border-radius: 50%;
+    background-color: red;
+}
+@keyframes heartbeat {
+    0%{ 
+        transform:rotate(45deg) scale(0.5) ;
+    }
+    70%{ 
+        transform: rotate(45deg) scale(1) ;
+    }
+    100%{ 
+        transform:rotate(45deg) scale(0.08) ;
+    }
+    
+}
+.envelope:hover .heart{
+    animation: heartbeat 0.65s linear infinite;
+}
+
+.cake1,.cake{
+    background-color:  rgb(161, 105, 214);
+    color:  rgb(161, 105, 214);
+}
+.envelope:hover .cake1{
+    color: black;
+}
+ .envelope:hover .cake {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff4d6d;
+  color: white;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  animation: pulse 2s infinite;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #d6336c;
+}
+
+@keyframes pulse {
+  0%, 100% {
+       /* transform: translate(20px); */
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(240, 72, 103, 0.7);
+  }
+  50% {
+    /* transform: translate(20px); */
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(241, 70, 101, 0.9);
+  }
+}
+
+.click{
+    position: absolute;
+    z-index: 4;
+    left: 80px;
+    top: 75px;
+    border-radius: 50px;
+    font-size: larger;
+    animation: pulse 2s infinite;
+}
+.envelope:hover .click{
+
+    z-index: -3;
+}

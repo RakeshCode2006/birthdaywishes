@@ -1,0 +1,205 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to top right, #ffe0f0, #ffd6f5);
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+/* Heart background animation
+.background .hearts::before,
+.background .hearts::after {
+  content: "💖💝💗💞💕💘💓";
+  position: absolute;
+  width: 100%;
+  font-size: 2rem;
+  animation: heartRain 15s linear infinite;
+  white-space: nowrap;
+  top: -100%;
+  opacity: 0.2;
+} */
+
+.background .hearts::after {
+  animation-delay: 5s;
+}
+.heart-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heart {
+  position: absolute;
+  top: -350px;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b81;
+  transform: rotate(45deg);
+  animation: fall 8s linear infinite;
+}
+
+/* Making it look like a heart using CSS */
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b81;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+/* Falling animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Random positions and timings */
+.heart:nth-child(1) { left: 10%; animation-delay: 3.5s; }
+.heart:nth-child(2) { left: 20%; animation-delay: 2s; }
+/* .heart:nth-child(3) { left: 30%; animation-delay: 4s; } */
+.heart:nth-child(4) { left: 40%; animation-delay: 1s; }
+.heart:nth-child(5) { left: 50%; animation-delay: 3s; }
+.heart:nth-child(6) { left: 60%; animation-delay: 3.9s; }
+.heart:nth-child(7) { left: 70%; animation-delay: 1.5s; }
+.heart:nth-child(8) { left: 80%; animation-delay: 2.5s; }
+.heart:nth-child(9) { left: 90%; animation-delay: 8.5s; }
+.heart:nth-child(10) { left: 95%; animation-delay: 3s; }
+.heart:nth-child(11) { left: 15%; animation-delay: 1.5s; }
+.heart:nth-child(12) { left: 25%; animation-delay: 3s; }
+.heart:nth-child(13) { left: 35%; animation-delay: 9s; }
+.heart:nth-child(14) { left: 45%; animation-delay: 9s; }
+.heart:nth-child(15) { left: 55%; animation-delay: 13.5s; }
+.heart:nth-child(16) { left: 65%; animation-delay: 4.5s; }
+.heart:nth-child(17) { left: 75%; animation-delay: 7.5s; }
+.heart:nth-child(18) { left: 85%; animation-delay: 0.5s; }
+.heart:nth-child(19) { left: 5%; animation-delay: 2.5s; }
+.heart:nth-child(20) { left: 0%; animation-delay: 5.5s; }
+.heart:nth-child(21) { left: 100%; animation-delay: 11s; }
+/* .heart:nth-child(9) { left: 0%; animation-delay: 2.3s; } */
+
+
+
+
+
+
+@keyframes heartRain {
+  0% { top: -100%; transform: rotate(0deg); }
+  100% { top: 100%; transform: rotate(360deg); }
+}
+
+/* Main card */
+.card {
+  background: white;
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glow {
+  font-size: 1.8rem;
+  color: #ff4d6d;
+  text-shadow: 0 0 8px #ff8fab, 0 0 20px #ff4d6d;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff4d6d;
+  color: white;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.button:hover {
+  background: #d6336c;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(255, 77, 109, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.9);
+  }
+}
+
+/* Hidden proposal section */
+.proposal {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff0f6;
+  border-radius: 15px;
+  display: none;
+  animation: slideIn 1s ease forwards;
+}
+
+#toggle:checked + .button + .proposal {
+  display: block;
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.proposal h2 {
+  color: #d6336c;
+  margin-bottom: 10px;
+}
+
+.proposal ul {
+  text-align: left;
+  margin: 10px 0 10px 30px;
+}
+
+.proposal li {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
